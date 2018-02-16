@@ -15,8 +15,8 @@ endsnippet
 snippet cl "class .. (class)"
 class ${1:`!p snip.rv = snip.basename or "name"`} {
 public:
-	${1/(\w+).*/$1/} (${2:arguments});
-	virtual ~${1/(\w+).*/$1/} ();
+	${1/(\w+).*/$1/}(${2:arguments});
+	virtual ~${1/(\w+).*/$1/}();
 
 private:
 	${0:/* data */}
@@ -65,5 +65,17 @@ private:
 };
 
 #endif /* $2 */
+endsnippet
+
+snippet dec "Basic c++ doxygen declaration template" b
+/**
+* @brief: ${4:brief}
+*
+* @param: `!p write_docstring_args(t[3],snip)`
+*
+* @return: `!p snip.rv = t[1]`
+*/
+${1:ReturnType} ${2:FunctionName}(${3:param});
+$0
 endsnippet
 # vim:ft=snippets:
